@@ -1,10 +1,10 @@
 defmodule Bottles do
   def song do
-    Bottles.verses(99, 0)
+    verses(99, 0)
   end
 
   def verses(high, low) do
-    Enum.map_join(high..low, "\n", &(Bottles.verse(&1)))
+    Enum.map_join(high..low, "\n", &(verse(&1)))
   end
 
   def verse(number) do
