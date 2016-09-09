@@ -14,12 +14,14 @@ defmodule Bottles do
       "#{successor(number) |> quantity} #{container(number-1)} of beer on the wall.\n"
   end
 
+  def container(6), do: "six-pack"
   def container(1), do: "bottle"
-  def container(number), do: "bottles"
+  def container(_), do: "bottles"
 
   def pronoun(1), do: "it"
-  def pronoun(number), do: "one"
+  def pronoun(_), do: "one"
 
+  def quantity(6), do: "1"
   def quantity(0), do: "no more"
   def quantity(number), do: Integer.to_string(number)
 
