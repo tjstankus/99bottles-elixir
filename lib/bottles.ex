@@ -14,43 +14,18 @@ defmodule Bottles do
       "#{successor(number) |> quantity} #{container(number-1)} of beer on the wall.\n"
   end
 
-  def container(number) do
-    if number == 1 do
-      "bottle"
-    else
-      "bottles"
-    end
-  end
+  def container(1), do: "bottle"
+  def container(number), do: "bottles"
 
-  def pronoun(number) do
-    if number == 1 do
-      "it"
-    else
-      "one"
-    end
-  end
+  def pronoun(1), do: "it"
+  def pronoun(number), do: "one"
 
-  def quantity(number) do
-    if number == 0 do
-      "no more"
-    else
-      Integer.to_string(number)
-    end
-  end
+  def quantity(0), do: "no more"
+  def quantity(number), do: Integer.to_string(number)
 
-  def action(number) do
-    if number == 0 do
-      "Go to the store and buy some more"
-    else
-      "Take #{pronoun(number)} down and pass it around"
-    end
-  end
+  def action(0), do: "Go to the store and buy some more"
+  def action(number), do: "Take #{pronoun(number)} down and pass it around"
 
-  def successor(number) do
-    if number == 0 do
-      99
-    else
-      number - 1
-    end
-  end
+  def successor(0), do: 99
+  def successor(number), do: number - 1
 end
