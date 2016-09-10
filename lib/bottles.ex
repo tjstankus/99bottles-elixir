@@ -8,14 +8,18 @@ defmodule Bottles do
   end
 
   def verse(number) do
-    "#{BottleNumber.quantity(number) |> String.capitalize} #{BottleNumber.container(number)} of beer on the wall, " <>
-      "#{BottleNumber.quantity(number)} #{BottleNumber.container(number)} of beer.\n" <>
+    "#{BottleNumber.to_string(number) |> String.capitalize} of beer on the wall, " <>
+      "#{BottleNumber.to_string(number)} of beer.\n" <>
       "#{BottleNumber.action(number)}, " <>
-      "#{BottleNumber.successor(number) |> BottleNumber.quantity} #{BottleNumber.container(number-1)} of beer on the wall.\n"
+      "#{BottleNumber.successor(number) |> BottleNumber.to_string} of beer on the wall.\n"
   end
 end
 
 defmodule BottleNumber do
+  def to_string(number) do
+    "#{quantity(number)} #{container(number)}"
+  end
+
   def container(6), do: "six-pack"
   def container(1), do: "bottle"
   def container(_), do: "bottles"
